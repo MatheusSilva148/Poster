@@ -1,13 +1,16 @@
 <section class="section">
   <div class="container">
     <div class="columns">
-        <% if user_signed_in? %>
-            <%= render 'profile' %>
-        <% else %>
-            <%= render 'trends' %>
-        <% end %> 
+        <div class="column is-one-third">
+            <% if user_signed_in? %>
+                <%= render 'profile' %>
+                <br>
+                <%= render 'whats-new' %>
+            <% else %>
+                <%= render 'trends' %>
+            <% end %> 
+        </div>
         <%= render 'feed' %>
-        <%= render 'who-to-follow' %> 
     </div>
   </div>
 </section>
