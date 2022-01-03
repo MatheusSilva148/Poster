@@ -1,0 +1,16 @@
+<section class="section">
+  <div class="container">
+    <div class="columns">
+        <div class="column is-one-third">
+            <% if user_signed_in? %>
+                <%= render 'profile' %>
+                <br>
+                <%= render 'whats-new' %>
+            <% else %>
+                <%= render 'whats-new' %>
+            <% end %> 
+        </div>
+        <%= render 'feed' %>
+    </div>
+  </div>
+</section>
