@@ -18,10 +18,10 @@
                 <article class="media">
                     <figure class="media-left">
                         <p class="image is-48x48">
-                            <img src="https://i.pinimg.com/originals/1b/ef/b5/1befb5723f54627768e1d77642ca4d45.jpg">
+                            <%= image_tag(post.user.avatar_thumbnail) %>
                         </p>
                     </figure>
-                    <div class="content">
+                    <div class="content has-text-grey-darker">
                         <strong><%= post.user.name %></strong>
                         <br>
                         <small>@<%= post.user.username %></small>

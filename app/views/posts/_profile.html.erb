@@ -6,12 +6,12 @@
 				<article class="media">
 					<div class="media-left">
 						<figure class="image is-64x64">
-							<img src="https://i.pinimg.com/originals/1b/ef/b5/1befb5723f54627768e1d77642ca4d45.jpg">
+							<%= image_tag(current_user.avatar_thumbnail) %>
 						</figure>
 					</div>
 					
 					<div class="media-content">
-						<div class="content">
+						<div class="content has-text-grey-darker">
 							<p>
 								
 									<strong><%= current_user.name %></strong><br />

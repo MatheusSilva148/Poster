@@ -1,4 +1,4 @@
-    <% if user_signed_in? %>
+    <% if user_signed_in? and current_user == @user %>
         <div class="box">
             <p class="title is-5">Post about it</p>
             <article class="media">
@@ -16,7 +16,7 @@
           <article class="media">
               <figure class="media-left">
                   <p class="image is-48x48">
-                      <img src="https://i.pinimg.com/originals/1b/ef/b5/1befb5723f54627768e1d77642ca4d45.jpg">
+                      <%= image_tag(@user.avatar_thumbnail) %>
                   </p>
               </figure>
               <div class="content">

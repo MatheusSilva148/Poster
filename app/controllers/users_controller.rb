@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   # GET /users/1 or /users/1.json
   def show
-    @posts = Post.where(user: current_user).order("created_at DESC")
+    @posts = Post.where(user: @user).order("created_at DESC")
     @post = Post.new
   end
 

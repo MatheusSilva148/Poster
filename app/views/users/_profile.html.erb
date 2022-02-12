@@ -1,28 +1,28 @@
-	<nav class="panel">
+	
 		<p class="panel-heading">Profile</p>
-		<div class="panel-block">
+		<div class="box">
 			<article class="media">
-				<div class="media-left">
-					<figure class="image is-64x64">
-						<img src="https://i.pinimg.com/originals/1b/ef/b5/1befb5723f54627768e1d77642ca4d45.jpg">
+				
+				
+					<figure class="image is-128x128">
+						<%= image_tag(@user.avatar_thumbnail) %>
 					</figure>
-				</div>
-				<div class="media-content">
-					<div class="content">
-						<p>
-							<strong><%= @user.name %></strong><br />
-							<small>@<%= @user.username %></small>
-						</p>
-					</div>
+				
+			</article>
+			<article class="media">
+				<div class="content has-centered-text">
+					<h2>
+						<%= @user.name %>
+					</h2>
+					<div class="subtitle">@<%= @user.username %></div>
 				</div>
 			</article>
-		</div>
-		<div class="panel-block">
+			<article class="media">
 			<div class="level is-mobile">
 				<div class="level-item has-centered-text">
 					<div>
 						<p class="heading">Posts</p>
-						<p class="title is-6"><%= current_user.posts.count %></p>
+						<p class="title is-6"><%= @user.posts.count %></p>
 					</div>
 				</div>
 				<div class="level-item has-centered-text">
@@ -38,5 +38,13 @@
 					</div>
 				</div>
 			</div>
+			</article>
+			<% if @user != current_user %>
+				<article class="media">
+						<p class="control">
+						<%= link_to "Follow", "#",  class: "button is-primary" %>
+						</p>
+				</article>
+			<% end %>
 		</div>
-	</nav>
+
