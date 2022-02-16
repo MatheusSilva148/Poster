@@ -39,12 +39,16 @@
 				</div>
 			</div>
 			</article>
-			<% if @user != current_user %>
-				<article class="media">
+			<article class="media field is-grouped">
+				<% if @user != current_user %>
 						<p class="control">
-						<%= link_to "Follow", "#",  class: "button is-primary" %>
+							<%= link_to "Follow", "#",  class: "button is-primary" %>
 						</p>
-				</article>
-			<% end %>
+				<% else %>
+					<p class="control">
+						<%= link_to "Edit profile", edit_user_registration_path, class: "button is-primary" %>
+					</p>
+				<% end %>
+			</article>
 		</div>
 

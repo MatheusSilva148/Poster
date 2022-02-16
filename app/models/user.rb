@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   has_many :posts
+  after_commit :add_default_avatar, on: %i[create update]
 
   has_one_attached :avatar
 
@@ -16,4 +17,20 @@ class User < ApplicationRecord
     end
   end
 
+    private
+    
+    def add_default_avatar
+      unless avatar.attached?
+        avatar.attach(
+          io: File.open(
+            Rails.root.join(
+              'app', 'assets', 'images', 'default_profile.jpg'
+            )
+          ),
+          filename: 'default_profile.jpg',
+          content_type: 'image/jpg'
+        )
+      end
+  end
 end
+
